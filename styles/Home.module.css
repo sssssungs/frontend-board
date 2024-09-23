@@ -1,165 +1,175 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+.app {
   display: flex;
+  font-family: sans-serif;
+  text-align: center;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.confetti {
+  width: 15px;
+  height: 15px;
+  background-color: #f2d74e;
+  position: absolute;
+  left: 50%;
+  animation: confetti 5s ease-in-out -2s infinite;
+  transform-origin: left top;
+}
+.confetti:nth-child(1) {
+  background-color: #ff7400;
+  left: 10%;
+  animation-delay: -0.5s;
+}
+.confetti:nth-child(2) {
+  background-color: #95c3de;
+  left: 20%;
+  animation-delay: -5s;
+}
+.confetti:nth-child(3) {
+  background-color: #ff9a91;
+  left: 30%;
+  animation-delay: -3s;
+}
+.confetti:nth-child(4) {
+  background-color: #f2d74e;
+  left: 40%;
+  animation-delay: -2.5s;
+}
+.confetti:nth-child(5) {
+  background-color: #95c3de;
+  left: 50%;
+  animation-delay: -4s;
+}
+.confetti:nth-child(6) {
+  background-color: #ff9a91;
+  left: 60%;
+  animation-delay: -6s;
+}
+.confetti:nth-child(7) {
+  background-color: #77492c;
+  left: 70%;
+  animation-delay: -1.5s;
+}
+.confetti:nth-child(8) {
+  background-color: #95c3de;
+  left: 80%;
+  animation-delay: -2s;
+}
+.confetti:nth-child(9) {
+  background-color: #ff9a91;
+  left: 90%;
+  animation-delay: -3.5s;
+}
+.confetti:nth-child(10) {
+  background-color: #f2d74e;
+  left: 100%;
+  animation-delay: -2.5s;
+}
+.confetti:nth-child(11) {
+  background-color: #5fd468;
+  left: 85%;
+  animation-delay: -6.3s;
+}
+.confetti:nth-child(12) {
+  background-color: #9d3568;
+  left: 55%;
+  animation-delay: -5.7s;
+}
+.confetti:nth-child(13) {
+  background-color: #1b5a68;
+  left: 25%;
+  animation-delay: -1.8s;
+}
+.confetti:nth-child(14) {
+  background-color: #8accda;
+  left: 8%;
+  animation-delay: -2.8s;
+}
+.confetti:nth-child(15) {
+  background-color: #e35d24;
+  left: 78%;
+  animation-delay: -5s;
+}
+.confetti:nth-child(16) {
+  background-color: #423afd;
+  left: 55%;
+  animation-delay: -3s;
+}
+.confetti:nth-child(17) {
+  background-color: #be3ee8;
+  left: 33%;
+  animation-delay: -1.45s;
+}
+.confetti:nth-child(18) {
+  background-color: #ffec05;
+  left: 25%;
+  animation-delay: -2.2s;
+}
+.confetti:nth-child(19) {
+  background-color: #73dc2e;
+  left: 65%;
+  animation-delay: -3.1s;
+}
+.confetti:nth-child(20) {
+  background-color: #fc5f5f;
+  left: 49%;
+  animation-delay: -2.78s;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+@keyframes confetti {
+  0% {
+    transform: rotateZ(20deg) rotateY(0deg) translate(0, 0);
+  }
+  25% {
+    transform: rotateZ(5deg) rotateY(360deg) translate(-5vw, 20vh);
+  }
+  50% {
+    transform: rotateZ(15deg) rotateY(720deg) translate(5vw, 60vh);
+  }
+  75% {
+    transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw, 80vh);
+  }
+  100% {
+    transform: rotateZ(15deg) rotateY(1440deg) translate(10vw, 110vh);
+  }
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+.fyi {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  text-decoration: none;
 }
 
-.ctas {
+.timer {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.timer .number {
+  z-index: 2;
+  font-size: 300px;
   display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+  height: 100%;
+  color: white;
+  text-shadow: 10px 10px 30px #3d3838;
+  animation: zoom-in-zoom-out 1s ease-out infinite;
 }
