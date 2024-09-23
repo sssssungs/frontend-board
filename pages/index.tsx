@@ -5,21 +5,21 @@ import Confetti from "./confetti";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
 
-const slackId = {
-  anthony: "U017FUKU8H5",
-  benny: "U01APQ2FHBK",
-  gump: "UBW1BUHT9",
-  harvey: "U03Q7G5NVJM",
-  hazle: "U018R4BKDPB",
-  hunter: "U035T882B6V",
-  hugo: "U05SGHKA77U",
-  jhin: "U03HHV1JL6B",
-  mari: "U03V8FEDAM7",
-  matt: "U05TBHE96NQ",
-  nara: "U03B9JT4NUW",
-  randy: "U018CHKF4TU",
-  winnie: "UQJ7K01CP",
-};
+// const slackId = {
+//   anthony: "U017FUKU8H5",
+//   benny: "U01APQ2FHBK",
+//   gump: "UBW1BUHT9",
+//   harvey: "U03Q7G5NVJM",
+//   hazle: "U018R4BKDPB",
+//   hunter: "U035T882B6V",
+//   hugo: "U05SGHKA77U",
+//   jhin: "U03HHV1JL6B",
+//   mari: "U03V8FEDAM7",
+//   matt: "U05TBHE96NQ",
+//   nara: "U03B9JT4NUW",
+//   randy: "U018CHKF4TU",
+//   winnie: "UQJ7K01CP",
+// };
 
 const closetMember = [
   "nara",
