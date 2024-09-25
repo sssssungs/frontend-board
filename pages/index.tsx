@@ -33,18 +33,20 @@ const closetMember = [
 ];
 const connectMember = ["mari", "randy", "hunter"];
 const TIME_ZONE = 3240 * 10000;
-const makeDashDate = (d) => {
+const makeDashDate = (d: number) => {
   const str = String(d);
   return `${str.substring(0, 4)}-${str.substring(4, 6)}-${str.substring(6, 8)}`;
 };
 export default function Home() {
-  const defaultMember = (msg) => ({
+  const defaultMember = (msg: string) => ({
     1: [msg],
     2: [msg],
     3: [msg],
     4: [msg],
   });
-  const [member, setMember] = React.useState(defaultMember("뽑아주세요"));
+  const [member, setMember] = React.useState<{ [key: string]: string[] }>(
+    defaultMember("뽑아주세요"),
+  );
   const [bang, setBang] = React.useState(false);
   const [timeLeft, setTimeLeft] = React.useState<number | null>(null);
   const [closetDeploy, setClosetDeploy] = React.useState("");
@@ -80,6 +82,7 @@ export default function Home() {
       .get("https://random-member.sssssungs.workers.dev/connect")
       .then(({ data }) => {
         const { name, date } = data;
+        console.log(name, typeof date);
         setConnectDeploy(name);
         setConnectUpdateDate(makeDashDate(date));
         setIsConnectUpdate(false);
@@ -114,7 +117,7 @@ export default function Home() {
       "harvey",
     ];
 
-    const result = {
+    const result: { [key: string]: string[] } = {
       1: [],
       2: [],
       3: [],
@@ -151,7 +154,7 @@ export default function Home() {
     patch(nextPerson, "connect");
   };
 
-  const patch = (name, type) => {
+  const patch = (name: string, type: string) => {
     axios
       .post("https://random-member.sssssungs.workers.dev/" + type, {
         name,
